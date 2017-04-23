@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+require('colors');
+
+const path = require('path');
+const isitfriday = require(path.resolve(__dirname, '../dist/isitfriday')).default;
+const output = isitfriday() ? 'yes'.green : 'no'.red;
+
+process.stdout.write(`${output}\n`);

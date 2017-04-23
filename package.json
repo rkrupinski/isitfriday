@@ -1,0 +1,47 @@
+{
+  "name": "isitfriday",
+  "version": "0.0.0",
+  "description": "Is it friday?",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "jest",
+    "prepublish": "yarn run build && yarn test"
+  },
+  "bin": {
+    "isitfriday": "./bin/isitfriday"
+  },
+  "main": "./dist/isitfriday.js",
+  "types": "./dist/isitfriday.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rkrupinski/isitfriday.git"
+  },
+  "keywords": [
+    "friday"
+  ],
+  "author": "Rafał Krupiński",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^19.2.2",
+    "jest": "^19.0.2",
+    "ts-jest": "^19.0.10",
+    "typescript": "^2.2.2"
+  },
+  "dependencies": {
+    "colors": "^1.1.2"
+  },
+  "jest": {
+    "transform": {
+      ".ts": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "\\.test\\.ts$",
+    "moduleDirectories": [
+      "<rootDir>/src",
+      "node_modules"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
+  }
+}

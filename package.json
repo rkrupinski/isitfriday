@@ -1,6 +1,6 @@
 {
   "name": "isitfriday",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Is it friday?",
   "scripts": {
     "build": "tsc -p tsconfig.json",

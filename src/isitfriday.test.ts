@@ -1,32 +1,48 @@
 import isitfriday from './isitfriday';
 
-expect.extend({
-  toBeOneOf(received, arg) {
-    const pass = arg.includes(received);
-
-    return {
-      message() {
-        return `expected ${received} ${pass ? '' : 'not '}to be one of: ${arg.join(', ')}`;
-      },
-      pass
-    };
-  },
-});
-
 describe('isitfriday', function () {
-  it('Should work when called with no arguments', function () {
-    expect(isitfriday()).toBeOneOf([true, false]);
+  describe('no args', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
+    it('should handle friday', () => {
+      jest.setSystemTime(new Date('2023-02-17'));
+
+      expect(isitfriday()).toBe(true);
+    });
+
+    it('should handle non-friday', () => {
+      jest.setSystemTime(new Date('2023-02-18'));
+
+      expect(isitfriday()).toBe(false);
+    });
   });
 
-  it('Should return true on friday', function () {
-    const testDate = new Date('Fri Apr 21 2017 23:59:59 GMT+0200 (CEST)');
-
-    expect(isitfriday(testDate)).toBe(true);
+  describe('with args', () => {
+    it.each`
+      candidate                 | expected
+      ${new Date('2023-02-17')} | ${true}
+      ${new Date('2023-02-18')} | ${false}
+      ${1676592000000}          | ${true}
+      ${1676678400000}          | ${false}
+      ${'2023-02-17'}           | ${true}
+      ${'2023-02-18'}           | ${false}
+    `(
+      'should return $expected when called with $candidate',
+      ({ candidate, expected }) => {
+        expect(isitfriday(candidate)).toBe(expected);
+      },
+    );
   });
 
-  it('Should return false on other days', function () {
-    const testDate = new Date('Thu Apr 20 2017 23:59:59 GMT+0200 (CEST)');
-
-    expect(isitfriday(testDate)).toBe(false);
+  describe('invalid args', () => {
+    it('should throw', () => {
+      expect(() => isitfriday('__LOL__')).toThrow('Invalid input');
+    });
   });
 });

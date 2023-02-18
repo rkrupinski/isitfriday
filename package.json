@@ -1,47 +1,36 @@
 {
   "name": "isitfriday",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Is it friday?",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "test": "jest",
-    "prepublish": "yarn run build && yarn test"
+    "build": "rm -rf dist && tsc",
+    "test": "jest"
   },
   "bin": {
     "isitfriday": "./bin/isitfriday"
   },
-  "main": "./dist/isitfriday.js",
-  "types": "./dist/isitfriday.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/rkrupinski/isitfriday.git"
   },
   "keywords": [
-    "friday"
+    "friday",
+    "weekend",
+    "party"
   ],
   "author": "Rafał Krupiński",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^19.2.2",
-    "jest": "^19.0.2",
-    "ts-jest": "^19.0.10",
-    "typescript": "^2.2.2"
+    "@rkrupinski/prettierconfig": "1.0.1",
+    "@types/jest": "29.4.0",
+    "jest": "29.4.3",
+    "ts-jest": "29.0.5",
+    "typescript": "4.9.5"
   },
   "dependencies": {
-    "colors": "^1.1.2"
+    "colors": "1.4.0"
   },
-  "jest": {
-    "transform": {
-      ".ts": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "\\.test\\.ts$",
-    "moduleDirectories": [
-      "<rootDir>/src",
-      "node_modules"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ]
-  }
+  "prettier": "@rkrupinski/prettierconfig"
 }

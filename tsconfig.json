@@ -1,17 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "moduleResolution": "node",
+    "target": "ES2015",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "strict": true,
+    "sourceMap": true,
     "declaration": true,
-    "noEmitOnError": true,
-    "noImplicitAny": true,
-    "outDir": "dist",
-    "strictNullChecks": true,
-    "target": "es5"
+    "outDir": "dist"
   },
-  "files": [
-    "src/isitfriday.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "src/**/*.test.ts"]
 }

@@ -1,11 +1,14 @@
-const FRIDAY: number = 5;
+export const THE_DAY = 5;
 
-const isitfriday: IIsItFriday = function (today) {
-  return (today || new Date()).getDay() === FRIDAY;
+type Candidate = ConstructorParameters<typeof Date>[0];
+
+const isitfriday = (candidate?: Candidate) => {
+  const theDate = new Date(candidate ?? Date.now());
+
+  if (`${theDate}`.toLowerCase() === 'invalid date')
+    throw new Error('Invalid input');
+
+  return theDate.getDay() === THE_DAY;
 };
-
-export interface IIsItFriday {
-  (today?: Date): boolean;
-}
 
 export default isitfriday;

@@ -1,6 +1,7 @@
 # isitfriday
 
 ![Build status](https://github.com/rkrupinski/isitfriday/workflows/CI/badge.svg)
+[![minified + gzip](https://badgen.net/bundlephobia/minzip/isitfriday)](https://bundlephobia.com/package/isitfriday)
 
 Have you ever wondered if it's Friday? Wonder no more!
 

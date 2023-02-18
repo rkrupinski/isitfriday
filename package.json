@@ -1,7 +1,7 @@
 {
   "name": "isitfriday",
   "version": "2.0.0",
-  "description": "Is it friday?",
+  "description": "Have you ever wondered if it's Friday? Wonder no more!",
   "scripts": {
     "build": "rm -rf dist && tsc",
     "test": "jest"

@@ -1,38 +1,43 @@
 # isitfriday
 
+![Build status](https://github.com/rkrupinski/isitfriday/workflows/CI/badge.svg)
+
+Have you ever wondered if it's Friday? Wonder no more!
+
 ![isitfriday](assets/isitfriday.gif)
 
-Is it friday?
-
-[![Build Status](https://travis-ci.org/rkrupinski/isitfriday.png?branch=master)](https://travis-ci.org/rkrupinski/isitfriday)
 
 ## Installation
 
-```sh
-yarn add isitfriday
+```
+$ yarn add isitfriday
 ```
 
 ## Usage
 
-```typescript
-interface IIsItFriday {
-  (today?: Date): boolean;
-}
-```
-
 Programmatic:
+```ts
+import isitfriday from 'isitfriday';
 
-```js
-const isitfriday = require('isitfriday').default;
-
-console.log(isitfriday());
-console.log(isitfriday(new Date(1492774739871)));
+isitfriday();                      // boolean
+isitfriday(new Date('2023-02-17')) // boolean
+isitfriday('2023-02-17');          // boolean
+isitfriday(1676592000000);         // boolean
+isitfriday('xD');                  // Error
 ```
 
-CLI:
+Via `npx`:
+```
+$ npx isitfriday
+```
 
-```sh
-yarn global add isitfriday
+CLI (global):
+```
+$ yarn global add isitfriday
+$ isitfriday
+```
 
-isitfriday
+CLI (local):
+```
+$ ./node_modules/.bin/isitfriday
 ```

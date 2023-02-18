@@ -1,1 +1,1 @@
-export * from './isitfriday';
+export { default } from './isitfriday';
